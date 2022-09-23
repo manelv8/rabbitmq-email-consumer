@@ -10,7 +10,6 @@ class SendMessageService {
   }
 
   async run(fromName: string, fromAddress: string, toAddress: string, subject: string, html: string ): Promise<boolean> {
-    console.log(`send to ${toAddress} \n`)
     const result = await this.client
     .sendEmail({
       Source: `${fromName} <${fromAddress}>`,
@@ -37,7 +36,6 @@ class SendMessageService {
           console.error(err, err.stack);
           return false
       })
-      console.log(` fim send to ${toAddress} \n`)
       return result
       }
 }

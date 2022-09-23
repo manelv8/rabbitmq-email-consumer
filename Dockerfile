@@ -9,4 +9,5 @@ RUN npm i
 
 COPY --chown=node:node . .
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "build"]
+CMD ["npm", "run", "prod"]
