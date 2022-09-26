@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon src/index.ts",
-    "prod": "node dist/index.js",
+    "prod": "npm run build && node dist/index.js",
     "cleandist": "rimraf dist",
     "build": "npm run cleandist && sucrase ./src -d ./dist --transforms typescript,imports",
     "ts-node": "ts-node"

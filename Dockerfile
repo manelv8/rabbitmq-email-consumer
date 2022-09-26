@@ -9,6 +9,4 @@ RUN npm i
 
 COPY --chown=node:node . .
 
-RUN npm run cleandist
-RUN npm run build
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "start"]

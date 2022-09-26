@@ -36,4 +36,4 @@ async function send(json: string): Promise<boolean> {
     return result
 }
 
-console.log('started consumerR')
+console.log('started consumer email')
