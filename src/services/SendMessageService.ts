@@ -9,7 +9,7 @@ class SendMessageService {
     })
   }
 
-  async run(fromName: string, fromAddress: string, toAddress: string, subject: string, html: string ): Promise<boolean> {
+  async run(fromName: string, fromAddress: string, toAddress: string, subject: string, html: string ): Promise<any> {
     const result = await this.client
     .sendEmail({
       Source: `${fromName} <${fromAddress}>`,
@@ -30,11 +30,17 @@ class SendMessageService {
     }).promise().then(
         (data) => {
           console.log(data);
-          return true
+          return {
+            data: 'success',
+            status: true
+          }
       }).catch(
         (err) => {
           console.error(err, err.stack);
-          return false
+          return {
+            data: err.message,
+            status: false
+          }
       })
       return result
       }
