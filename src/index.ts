@@ -9,7 +9,8 @@ async function consumeFromQueue() {
     const host = process.env.RABBITMQ_HOST
     const user = process.env.RABBITMQ_USER
     const passsword = process.env.RABBITMQ_PASSWORD
-    const connection: Connection = await client.connect(`amqp://${user}:${passsword}@${host}`)
+    const vhost = process.env.RABBITMQ_VHOST
+    const connection: Connection = await client.connect(`amqp://${user}:${passsword}@${host}/${vhost}`)
     const channel: Channel = await connection.createChannel()
     await channel.assertQueue(queue)
     await channel.prefetch(1)
