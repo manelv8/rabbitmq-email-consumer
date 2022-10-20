@@ -42,8 +42,9 @@ async function send(json: string): Promise<boolean> {
 
 async function updateEmailStatus(emailId: number, isSuccess: boolean, returnResponse: string): Promise<void> {
   try {
+    const baseUrl = process.env.G2_BASE_URL
     console.log('start update status')
-    const url = `http://localhost/pub/email/updateEmailStatus/${emailId}`
+    const url = `http://${baseUrl}/pub/email/updateEmailStatus/${emailId}`
       const config = {
         headers: {
           g2authorization:  process.env.G2_AUTHORIZATION
